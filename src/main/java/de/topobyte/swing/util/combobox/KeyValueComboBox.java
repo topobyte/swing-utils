@@ -24,6 +24,12 @@ import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.plaf.basic.BasicComboBoxRenderer;
 
+/**
+ * A combo box that displays a list of values using a corresponding list of
+ * names.
+ *
+ * @author Sebastian Kuerten (sebastian@topobyte.de)
+ */
 public class KeyValueComboBox<K, V> extends
 		JComboBox<KeyValueComboBox.Data<K, V>>
 {
