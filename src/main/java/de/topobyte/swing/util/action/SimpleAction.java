@@ -21,6 +21,8 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Icon;
 
+import de.topobyte.swing.util.ImageLoader;
+
 /**
  * @author Sebastian Kuerten (sebastian@topobyte.de)
  */
@@ -56,14 +58,48 @@ public abstract class SimpleAction extends AbstractAction
 	 * Create a SimpleAction that provides name and description
 	 * 
 	 * @param name
-	 *            the name of the action.
+	 *            the name of the action
 	 * @param description
-	 *            the short description of the action.
+	 *            the short description of the action
 	 */
 	public SimpleAction(String name, String description)
 	{
 		this.name = name;
 		this.description = description;
+	}
+
+	/**
+	 * Create a SimpleAction that provides name, description and an icon
+	 * 
+	 * @param name
+	 *            the name of the action
+	 * @param description
+	 *            the short description of the action
+	 * @param icon
+	 *            the icon used in menus
+	 */
+	public SimpleAction(String name, String description, Icon icon)
+	{
+		this.name = name;
+		this.description = description;
+		this.icon = icon;
+	}
+
+	/**
+	 * Create a SimpleAction that provides name, description and an icon
+	 * 
+	 * @param name
+	 *            the name of the action
+	 * @param description
+	 *            the short description of the action
+	 * @param resourceIcon
+	 *            a resource to decode the icon used in menus from
+	 */
+	public SimpleAction(String name, String description, String resourceIcon)
+	{
+		this.name = name;
+		this.description = description;
+		icon = ImageLoader.load(resourceIcon);
 	}
 
 	@Override
@@ -83,7 +119,7 @@ public abstract class SimpleAction extends AbstractAction
 	 * Set the name of this action.
 	 * 
 	 * @param name
-	 *            the new name.
+	 *            the new name
 	 */
 	protected void setName(String name)
 	{
@@ -94,7 +130,7 @@ public abstract class SimpleAction extends AbstractAction
 	 * Set the description of this action.
 	 * 
 	 * @param description
-	 *            the new description.
+	 *            the new description
 	 */
 	protected void setDescription(String description)
 	{
@@ -104,12 +140,23 @@ public abstract class SimpleAction extends AbstractAction
 	/**
 	 * Set this action's icon.
 	 * 
-	 * @param filename
-	 *            the icon to use.
+	 * @param icon
+	 *            the icon to use
 	 */
 	protected void setIcon(Icon icon)
 	{
 		this.icon = icon;
+	}
+
+	/**
+	 * Set this action's icon by resource.
+	 * 
+	 * @param resourceIcon
+	 *            a resource to decode the icon used in menus from
+	 */
+	protected void setIcon(String resourceIcon)
+	{
+		icon = ImageLoader.load(resourceIcon);
 	}
 
 }
