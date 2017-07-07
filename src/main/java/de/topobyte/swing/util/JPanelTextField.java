@@ -49,7 +49,7 @@ public class JPanelTextField extends JPanel
 	 */
 	public JPanelTextField(String text)
 	{
-		this("", BorderLayout.CENTER);
+		this(text, BorderLayout.CENTER);
 	}
 
 	/**
