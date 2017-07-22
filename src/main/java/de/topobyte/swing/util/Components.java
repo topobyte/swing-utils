@@ -32,6 +32,9 @@ import javax.swing.JFrame;
 public class Components
 {
 
+	// These methods work similar to
+	// javax.swing.SwingUtilities#getWindowAncestor
+
 	/**
 	 * Get the containing {@link Window} of the given component.
 	 * 
