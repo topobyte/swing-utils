@@ -29,6 +29,13 @@ public class SwingUtils
 	//
 	// See this source file
 	// https://github.com/openjdk/jdk/blob/master/src/java.desktop/share/classes/sun/java2d/SunGraphicsEnvironment.java
+	//
+	// Calling this method only works on JDK9+. See the relevant changes to
+	// SunGraphicsEnvironment.java in commit
+	// a00e011325156ae93660cb2ebbaba543fa545c33 that were commit 13 Nov 2015, in
+	// between the releases of JDK 8 in March 2014 and JDK 9 in September 2017.
+	// The changes can be browsed online here:
+	// https://github.com/openjdk/jdk/commit/a00e011325156ae93660cb2ebbaba543fa545c33
 	public static void setUiScale(double uiScale)
 	{
 		System.setProperty("sun.java2d.uiScale", Double.toString(uiScale));
