@@ -20,22 +20,24 @@ package de.topobyte.swing.util;
 public class SwingUtils
 {
 
-	// Sets a - not really well documented, but apparently relatively reliable -
-	// internal property to make scaling up the entire UI work. While Windows
-	// and macOS seem to be doing better at setting up scaling for Swing UIs,
-	// Linux fails miserably to do so for high density displays. Everything can
-	// be very tiny on such display and setting this to a value such as 2.0
-	// helps a lot. Only integral doubles are supported, i.e. 1.0, 2.0, 3.0 etc.
-	//
-	// See this source file
-	// https://github.com/openjdk/jdk/blob/master/src/java.desktop/share/classes/sun/java2d/SunGraphicsEnvironment.java
-	//
-	// Calling this method only works on JDK9+. See the relevant changes to
-	// SunGraphicsEnvironment.java in commit
-	// a00e011325156ae93660cb2ebbaba543fa545c33 that were commit 13 Nov 2015, in
-	// between the releases of JDK 8 in March 2014 and JDK 9 in September 2017.
-	// The changes can be browsed online here:
-	// https://github.com/openjdk/jdk/commit/a00e011325156ae93660cb2ebbaba543fa545c33
+	/**
+	 * Sets a - not really well documented, but apparently relatively reliable -
+	 * internal property to make scaling up the entire UI work. While Windows
+	 * and macOS seem to be doing better at setting up scaling for Swing UIs,
+	 * Linux fails miserably to do so for high density displays. Everything can
+	 * be very tiny on such display and setting this to a value such as 2.0
+	 * helps a lot. Only integral doubles are supported, i.e. 1.0, 2.0, 3.0 etc.
+	 * <p>
+	 * See this source file
+	 * https://github.com/openjdk/jdk/blob/master/src/java.desktop/share/classes/sun/java2d/SunGraphicsEnvironment.java
+	 * <p>
+	 * Calling this method only works on JDK9+. See the relevant changes to
+	 * SunGraphicsEnvironment.java in commit
+	 * a00e011325156ae93660cb2ebbaba543fa545c33 that were commit 13 Nov 2015, in
+	 * between the releases of JDK 8 in March 2014 and JDK 9 in September 2017.
+	 * The changes can be browsed online here:
+	 * https://github.com/openjdk/jdk/commit/a00e011325156ae93660cb2ebbaba543fa545c33
+	 */
 	public static void setUiScale(double uiScale)
 	{
 		System.setProperty("sun.java2d.uiScale", Double.toString(uiScale));
